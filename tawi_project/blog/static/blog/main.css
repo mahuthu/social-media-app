@@ -1,5 +1,5 @@
 body {
-  background: #fafafa;
+  background: #386641;
   color: #333333;
   margin-top: 5rem;
 }
@@ -13,7 +13,7 @@ ul {
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #000000;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -29,7 +29,7 @@ ul {
 }
 
 .content-section {
-  background: #ffffff;
+  background: #a7c957;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -81,4 +81,80 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+.content-section {
+    background: url(../img/machine\ learning.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.btn-outline-info {
+    background-color: #386641;
+    border-color: #386641;
+    color: #000000;
+}
+
+.btn-outline-info:hover {
+    background-color: #a7c957;
+    color: #fff;
+}
+
+.text-muted {
+    color: #888;
+}
+
+.my-media {
+  background: #ffffff;
+}
+
+.my-article-img {
+  max-width: 75%;
+  padding-bottom: 20px;
+
+
+
+}
+
+.my-media-body {
+  /* Add your media-body styles here */
+}
+
+.my-article-metadata {
+  /* Add your article-metadata styles here */
+}
+
+.my-author-link {
+  /* Add your author-link styles here */
+}
+
+.my-post-date {
+  /* Add your post-date styles here */
+}
+
+.my-action-buttons {
+  /* Add your action-buttons styles here */
+}
+
+.my-update-button {
+ background-color: #a7c957;
+}
+
+.my-article-title {
+  color: #a7c957;
+}
+
+.my-article-content {
+  color: #777777;
 }

@@ -1,0 +1,28 @@
+# Ignore Python bytecodes, caches, and logs
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Ignore local development settings
+*.env
+.env
+*.sqlite3
+
+# Ignore static and media files (only if served from a different location in production)
+static/
+media/
+
+# Ignore sensitive or generated settings
+secret_key.txt
+.env
+
+# Ignore IDE and editor-specific files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Ignore compiled translations
+locale/

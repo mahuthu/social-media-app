@@ -3,7 +3,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from .models import post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.http import HttpResponse
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
+from django.http import FileResponse
+from .models import Resume
+
+
+
 
 
 # Create your views here.
@@ -18,10 +26,13 @@ def home(request):
 
 class PostListView(ListView):
     model = post
-    template_name = 'blog/home.html'  #<app>/<model>_<viewtype>.html
+    template_name = 'blog/blogpage.html'  #<app>/<model>_<viewtype>.html
     context_object_name = 'posts'
     ordering = ['-date_posted']
     paginate_by = 5
+
+
+
 
 
 #new list view with custom filtered queries
@@ -39,7 +50,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'cover']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -47,10 +58,18 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin,  UpdateView):
     model = post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'cover']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        cover = self.request.FILES.get('cover')
+
+        # Check if a new cover image was uploaded
+        if cover:
+            # Save the cover image to the media root folder
+            form.instance.cover = cover
+            form.instance.save()
+
         return super().form_valid(form)
 
     def test_func(self):
@@ -75,3 +94,16 @@ def index(request):
 
 def about(request):
     return render(request, 'blog/aboutus.html', {'title': 'about'})
+
+def services(request):
+    return render(request, 'blog/services.html', {'title': 'services'})
+
+def contact(request):
+    return render(request, 'blog/contact.html', {'title': 'contact'})
+
+
+def resume_download(request):
+    resume = get_object_or_404(Resume)
+    file_path = resume.file.path
+    response = FileResponse(open(file_path, 'rb'))
+    return response

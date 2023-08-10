@@ -1,0 +1,370 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" >
+    <link rel="stylesheet" href= "{% static 'css/boxicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/linericon/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'vendors/lightbox/simpleLightbox.css'%}">
+    <link rel="stylesheet" href="{% static 'vendors/nice-select/css/nice-select.css'%}">
+    <link rel="stylesheet" href="{% static 'vendors/animate-css/animate.css'%}">
+    <link rel="stylesheet" href="{% static 'vendors/popup/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/flaticon/flaticon.css'%}">
+        <!-- main css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    {% if title %}
+        <title> Dev Mahuthu {{title}}</title>
+    {% else %}
+        <title> Dev Mahuthu</title>
+    {% endif %}
+</head>
+<body>
+<header class="header_area">
+    <nav class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container box_1620">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand logo_h" href="{% url 'blogs-home' %}"><img src="{% static 'img/logo7.png'%}" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="{% url 'blogs-index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{%url 'blogs-about'%}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'blogs-services'%}">services</a></li>
+                           {% if user.is_authenticated %}
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'post-create' %}">New Post</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+
+
+                            </ul>
+                        </li>
+
+
+                      {% else %}
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Regiter</a></li>
+                            </ul>
+                        </li>
+
+                      {% endif %}
+                        <li class ="nav-item"><a class="nav-item nav-link" href="{% url 'blogs-contact' %}">Contact</a></li>
+
+                    </ul>
+                </div>
+            </div>
+    </nav>
+  </nav>
+</header>
+<section class="home_banner_area blog_banner">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+        <div class="container">
+            <div class="blog_b_text text-center">
+                <h2>Discover the future of <br /> Generative AI</h2>
+                <p>Learn how you can leverage AI to boost your productivity</p>
+                <a class="white_bg_btn" href="{% url 'register' %}">Join Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="blog_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="blog_left_sidebar">
+                    {% for post in posts%}
+                    <article class="row blog_item">
+                       <div class="col-md-3">
+                           <div class="blog_info text-right">
+                                <div class="post_tag">
+                                    <img class = "rounded-circle article-img" src = "{{post.author.profile.image.url}}">
+                                </div>
+                                <ul class="blog_meta list">
+                                    <li><a class="mr-2" href="{%url 'user-posts' post.author.username%}">{{ post.author }}<i class="lnr lnr-user"></i></a></li>
+                                    <li><a href = "#"> {{ post.date_posted|date:'F d, Y' }}<i class="lnr lnr-calendar-full"></i></a></li>
+                                    <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
+                                    <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                                </ul>
+                            </div>
+                       </div>
+                        <div class="col-md-9">
+                            <div class="blog_post">
+                                <img src="{{post.cover.url}}" alt="">
+                                <div class="blog_details">
+                                    <h2><a class="article-title my-title my-color" href="{% url 'post-detail' post.id%}">{{ post.title }}</a></h2>
+                                    <p class="article-content">{{ post.content|truncatechars:200 }}</p>
+                                         {% if user.is_authenticated %}
+                                    <a href="{% url 'post-detail' post.id%}" class="white_bg_btn">View More</a>
+                                        {% else %}
+                                    <a href="{% url 'login' %}" class="white_bg_btn">View More</a>
+                                        {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+
+                    <nav class="blog-pagination justify-content-center d-flex">
+                        <ul class="pagination">
+                        {% if is_paginated %}
+
+                          {% if page_obj.has_previous %}
+                            <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                          {% endif %}
+
+                          {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                              <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                              <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                            {% endif %}
+                          {% endfor %}
+
+                          {% if page_obj.has_next %}
+                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                          {% endif %}
+
+                        {% endif %}
+
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget search_widget">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search Posts">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
+                            </span>
+                        </div><!-- /input-group -->
+                        <div class="br"></div>
+                    </aside>
+                    <aside class="single_sidebar_widget author_widget">
+                        <img class = "rounded-circle article-img smaller-image" src = " {% static 'img/mahuthu,img.jpg' %}">
+                        <h4>Mahuthu Wanjohi</h4>
+                        <p>Software Developer</p>
+                        <div class="social_icon">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-github"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                        <p>Mahuthu Wanjohi is a software developer based in Kenya<br/> I provide machine learning blogs on every important topic</p>
+                        <div class="br"></div>
+                    </aside>
+                    <aside class="single_sidebar_widget popular_post_widget">
+                        <h3 class="widget_title">Popular Posts</h3>
+                        <div class="media post_item">
+                            <img src="img/blog/popular-post/post1.jpg" alt="post">
+                            <div class="media-body">
+                                <a href="blog-details.html"><h3>Space The Final Frontier</h3></a>
+                                <p>02 Hours ago</p>
+                            </div>
+                        </div>
+                        <div class="media post_item">
+                            <img src="img/blog/popular-post/post2.jpg" alt="post">
+                            <div class="media-body">
+                                <a href="blog-details.html"><h3>The Amazing Hubble</h3></a>
+                                <p>02 Hours ago</p>
+                            </div>
+                        </div>
+                        <div class="media post_item">
+                            <img src="img/blog/popular-post/post3.jpg" alt="post">
+                            <div class="media-body">
+                                <a href="blog-details.html"><h3>Astronomy Or Astrology</h3></a>
+                                <p>03 Hours ago</p>
+                            </div>
+                        </div>
+                        <div class="media post_item">
+                            <img src="img/blog/popular-post/post4.jpg" alt="post">
+                            <div class="media-body">
+                                <a href="blog-details.html"><h3>Asteroids telescope</h3></a>
+                                <p>01 Hours ago</p>
+                            </div>
+                        </div>
+                        <div class="br"></div>
+                    </aside>
+                    <aside class="single_sidebar_widget ads_widget">
+                        <a href="#"><img class="img-fluid" src="img/blog/add.jpg" alt=""></a>
+                        <div class="br"></div>
+                    </aside>
+
+                    <aside class="single-sidebar-widget newsletter_widget">
+                        <h4 class="widget_title">Newsletter</h4>
+                        <p>
+                        Here, I focus on a range of items and features that we use in life without
+                        giving them a second thought.
+                        </p>
+                        <div class="form-group d-flex flex-row">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
+                            </div>
+                            <a href="#" class="bbtns">Subcribe</a>
+                        </div>
+                        <p class="text-bottom">You can unsubscribe at any time</p>
+                        <div class="br"></div>
+                    </aside>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer_area p_120">
+    <div class="container">
+        <div class="row footer_inner">
+            <div class="col-lg-5 col-sm-6">
+                <aside class="f_widget ab_widget">
+                    <div class="f_title">
+                        <h3>About Me</h3>
+                    </div>
+                    <p>Do you want to be even more successful? Learn to love learning and growth.</p>
+                    <div class= 'policies'>
+                        <h5 class="title-sm">More</h5>
+                        <div class="footer-links">
+                           <a href="#">FAQ's</a>
+                           <a href="#">Privacy & Policy</a>
+                           <a href="#">Liscences</a>
+                        </div>
+                     </div>
+                </aside>
+            </div>
+            <div class="col-lg-5 col-sm-6">
+                <aside class="f_widget news_widget">
+                    <div class="f_title">
+                        <h3>Newsletter</h3>
+                    </div>
+                    <p>Stay updated with our latest trends</p>
+                    <div id="mc_embed_signup">
+                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
+                            <div class="input-group d-flex flex-row">
+                                <input name="EMAIL" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
+                                <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>
+                            </div>
+                            <div class="mt-10 info"></div>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-lg-2">
+                <aside class="f_widget social_widget">
+                    <div class="f_title">
+                        <h3>Follow Me</h3>
+                    </div>
+                    <p>Let us be social</p>
+                    <ul class="list">
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-github"></i></a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--================End Footer Area =================-->
+
+<!--================Contact Success and Error message Area =================-->
+<div id="success" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2>Thank you</h2>
+                <p>Your message is successfully sent...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals error -->
+
+<div id="error" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2>Sorry !</h2>
+                <p> Something went wrong </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--================End Contact Success and Error message Area =================-->
+<div class="footer-bottom">
+    <div class="container">
+       <div class="row justify-content-between gy-3">
+          <div class="col-md-6 footer-title">
+            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Created by <a href="mahuthup@gmail.com" target="_blank">Mahuthu Wanjohi</a>
+             </p>
+          </div>
+          <div class="col-auto">
+             <p class="mb-0">savannah ai</p>
+          </div>
+       </div>
+    </div>
+ </div>
+
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/stellar.js' %}"></script>
+    <script src="{% static 'vendors/lightbox/simpleLightbox.min.js' %}"></script>
+    <script src="{% static 'vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'vendors/isotope/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendors/isotope/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendors/popup/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'js/mail-script.js' %}"></script>
+    <script src="{% static 'vendors/counter-up/jquery.waypoints.min.js'%}"></script>
+    <script src="{% static 'vendors/counter-up/jquery.counterup.min.js'%}"></script>
+        <!-- contact js -->
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/contact.js' %}"></script>
+        <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+    <script src="{% static 'js/gmaps.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+
+    </body>
+</html>

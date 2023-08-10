@@ -210,7 +210,7 @@ button:focus {
             .header_area .navbar .nav .nav-item.submenu ul .nav-item:last-child {
               border-bottom: none; }
             .header_area .navbar .nav .nav-item.submenu ul .nav-item:hover .nav-link {
-              background: #ffde59;
+              background: #680910;
               color: #fff; }
         @media (min-width: 992px) {
           .header_area .navbar .nav .nav-item.submenu:hover ul {
@@ -386,6 +386,22 @@ button:focus {
         align-self: center;
         margin-left: -80px; }
 
+#home{
+  background: url(../img/machine\ learning.jpg);
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+
+  align-items: center;
+}
+
+#profile{
+  background: url(../img/machine\ learning.jpg);
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+
+}
       
 
 
@@ -404,7 +420,6 @@ button:focus {
     min-height: 780px;
     z-index: 1; }
     .blog_banner .banner_inner .overlay {
-      background: url(../img/banner/nairobi1.jpg) no-repeat scroll center center;
       min-height: 100vh;
       background-size: cover;
       background-position: center;
@@ -444,14 +459,14 @@ button:focus {
 .banner_area {
   position: relative;
   z-index: 1;
-  min-height: 350px;
+  min-height: 250px;
   background-image: -moz-linear-gradient(0deg, #386641 0%, #a7c957 100%);
   background-image: -webkit-linear-gradient(0deg, #386641 0%, #a7c957 100%);
   background-image: -ms-linear-gradient(0deg, #386641, #a7c957 100%);
   margin-bottom: 120px; }
   .banner_area .box_1620 {
     background: #fff;
-    min-height: 360px;
+    min-height: 160px;
     border-radius: 12px;
     position: relative;
     bottom: -100px;
@@ -494,6 +509,10 @@ button:focus {
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 /* Latest Blog Area css
+
+
+
+
 ============================================================================================ */
 .latest_blog_inner {
   margin-bottom: -30px; }
@@ -607,12 +626,17 @@ button:focus {
 
 /*============ blog_left_sidebar css ==============*/
 .blog_item {
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+   margin-top: 20px;}
 
 .blog_info {
   padding-top: 30px; }
   .blog_info .post_tag {
     padding-bottom: 20px; }
+    .blog_info .post_tag .article-img{
+        height: 65px;
+        width: 65px;
+        margin-right: 16px}
     .blog_info .post_tag a {
       font: 300 14px/21px "Roboto", sans-serif;
       color: #222222; }
@@ -638,6 +662,11 @@ button:focus {
 
 .blog_post img {
   max-width: 100%; }
+
+.my-color.my-title {
+  color: #a7c957;
+  }
+
 
 .blog_details {
   padding-top: 20px; }
@@ -668,7 +697,7 @@ button:focus {
   .blog_right_sidebar .widget_title {
     font-size: 18px;
     line-height: 25px;
-    background: #766dff;
+    background: #a7c957;
     text-align: center;
     color: #fff;
     padding: 8px 0px;
@@ -683,7 +712,7 @@ button:focus {
     padding-left: 20px;
     border-radius: 45px;
     z-index: 0;
-    background: #766dff; }
+    background: #a7c957; }
     .blog_right_sidebar .search_widget .input-group .form-control.placeholder {
       color: #fff; }
     .blog_right_sidebar .search_widget .input-group .form-control:-moz-placeholder {
@@ -720,12 +749,12 @@ button:focus {
       padding: 7px 0px 15px; }
       .blog_right_sidebar .author_widget .social_icon a {
         font-size: 14px;
-        color: #222222;
+        color: #680910;
         transition: all 0.2s linear; }
         .blog_right_sidebar .author_widget .social_icon a + a {
           margin-left: 20px; }
         .blog_right_sidebar .author_widget .social_icon a:hover {
-          color: #766dff; }
+          color: #386641; }
   .blog_right_sidebar .popular_post_widget .post_item .media-body {
     justify-content: center;
     align-self: center;
@@ -794,7 +823,7 @@ button:focus {
         outline: none;
         box-shadow: none; }
     .blog_right_sidebar .newsletter_widget .bbtns {
-      background: #766dff;
+      background: #386641;
       color: #fff;
       font-size: 12px;
       line-height: 38px;
@@ -828,11 +857,25 @@ button:focus {
 
 .blog-pagination {
   padding-top: 25px;
-  padding-bottom: 95px; }
+  padding-bottom: 95px;
+  color: #680910;
+  }
   .blog-pagination .page-link {
     border-radius: 0; }
   .blog-pagination .page-item {
     border: none; }
+
+.pagination .btn {
+    color: #680910;
+    background-color: #a7c957;
+    border-color: #a7c957;
+    }
+
+.pagination .btn:hover {
+  background-image: -moz-linear-gradient(0deg, #386641 0%, #a7c957 100%);
+  background-image: -webkit-linear-gradient(0deg, #386641 0%, #a7c957 100%);
+  background-image: -ms-linear-gradient(0deg, #386641 0%, #a7c957 100%);
+}
 
 .page-link {
   background: transparent;
@@ -2716,7 +2759,9 @@ h6 {
   .feature_area.white_feature {
     padding-top: 50px;
     padding-bottom: 50px;
-    background-color: #0e4d13cc;;
+    background-image: -moz-linear-gradient(0deg, #386641 0%, #a7c957 100%);
+    background-image: -webkit-linear-gradient(0deg, #386641 0%, #a7c957 100%);
+    background-image: -ms-linear-gradient(0deg, #386641 0%, #a7c957 100%);
 
   }
 
@@ -3216,7 +3261,9 @@ h6 {
 #contact1 {
   padding-top: 100px;
   padding-bottom: 100px;
-  background-color: #0e4d13cc;
+  background-image: -moz-linear-gradient(0deg, #386641 0%, #a7c957 100%);
+  background-image: -webkit-linear-gradient(0deg, #386641 0%, #a7c957 100%);
+  background-image: -ms-linear-gradient(0deg, #386641 0%, #a7c957 100%);;
   
 }
 
@@ -3263,7 +3310,12 @@ h6 {
   text-transform: uppercase;
 }
 
+.smaller-image {
+    width: 65px; /* Adjust the width to your desired value */
+    height: 65px; /* Adjust the height to your desired value */
+    margin-right: 16px
 
+}
 /* End Footer Area css
 ============================================================================================ */
 /*---------------------------------------------------- */
