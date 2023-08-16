@@ -43,7 +43,7 @@
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="{% url 'blogs-home' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'blogs-about'%}">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'blogs-services' %}">services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">services</a></li>
                            {% if user.is_authenticated %}
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
@@ -91,16 +91,15 @@
 							<p>I am a full time engineer sharing daily insights in python, machine learning and artificial intelligence. <br> Dm for collaboration</p>
 
 							<ul class="list basic_info">
-								<li><a href="#"><i class="lnr lnr-calendar-full"></i> 31st November, 1996</a></li>
 								<li><a href="#"><i class="lnr lnr-phone-handset"></i> +254726258462</a></li>
-								<li><a href="#"><i class="lnr lnr-envelope"></i> mahuthu@gmail.com</a></li>
+								<li><a href="#"><i class="lnr lnr-envelope"></i> mahuthup@gmail.com</a></li>
 								<li><a href="#"><i class="lnr lnr-home"></i> Nairobi, Kenya</a></li>
 							</ul>
 							<ul class=" personal_social">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa fa-github"></i></a></li>
+								<li><a href="{{instagram_link}}"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="{{twitter_link}}"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="{{linkedin_link}}"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="{{github_link}}"><i class="fa fa-github"></i></a></li>
 							</ul>
 							<a href="#" class="btn btn-brand">Contact Me</a>
 						</div>
@@ -156,29 +155,15 @@
 							</div>
 						</div>
 						<div class="skill_item">
-							<h4>Node js <span class="counter">75</span>%</h4>
+							<h4>Node js <span class="counter">70</span>%</h4>
 							<div class="progress_br">
 								<div class="progress">
 									<div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
 							</div>
 						</div>
-						<div class="skill_item">
-							<h4>PHP <span class="counter">70</span>%</h4>
-							<div class="progress_br">
-								<div class="progress">
-									<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-						</div>
-						<div class="skill_item">
-							<h4>HTML/CSS<span class="counter">95</span>%</h4>
-							<div class="progress_br">
-								<div class="progress">
-									<div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-						</div>
+
+
 						<div class="skill_item">
 							<h4>React Native<span class="counter">50</span>%</h4>
 							<div class="progress_br">
@@ -403,10 +388,10 @@
                     </div>
                     <p>Let us be social</p>
                     <ul class="list">
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-github"></i></a></li>
+                        <li><a href="{{instagram_link}}"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="{{twitter_link}}"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="{{linkedin_link}}"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="{{github_link}}"><i class="fa fa-github"></i></a></li>
                     </ul>
                 </aside>
             </div>

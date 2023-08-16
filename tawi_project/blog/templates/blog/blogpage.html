@@ -41,9 +41,9 @@
                 </button>
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="{% url 'blogs-index' %}">Home</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{% url 'blogs-home' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'blogs-about'%}">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'blogs-services'%}">services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">services</a></li>
                            {% if user.is_authenticated %}
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
@@ -169,56 +169,18 @@
                         <h4>Mahuthu Wanjohi</h4>
                         <p>Software Developer</p>
                         <div class="social_icon">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-github"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="{{twitter_link}}"><i class="fa fa-twitter"></i></a>
+                            <a href="{{github_link}}"><i class="fa fa-github"></i></a>
+                            <a href="{{linkedin_link}}"><i class="fa fa-linkedin"></i></a>
                         </div>
                         <p>Mahuthu Wanjohi is a software developer based in Kenya<br/> I provide machine learning blogs on every important topic</p>
-                        <div class="br"></div>
-                    </aside>
-                    <aside class="single_sidebar_widget popular_post_widget">
-                        <h3 class="widget_title">Popular Posts</h3>
-                        <div class="media post_item">
-                            <img src="img/blog/popular-post/post1.jpg" alt="post">
-                            <div class="media-body">
-                                <a href="blog-details.html"><h3>Space The Final Frontier</h3></a>
-                                <p>02 Hours ago</p>
-                            </div>
-                        </div>
-                        <div class="media post_item">
-                            <img src="img/blog/popular-post/post2.jpg" alt="post">
-                            <div class="media-body">
-                                <a href="blog-details.html"><h3>The Amazing Hubble</h3></a>
-                                <p>02 Hours ago</p>
-                            </div>
-                        </div>
-                        <div class="media post_item">
-                            <img src="img/blog/popular-post/post3.jpg" alt="post">
-                            <div class="media-body">
-                                <a href="blog-details.html"><h3>Astronomy Or Astrology</h3></a>
-                                <p>03 Hours ago</p>
-                            </div>
-                        </div>
-                        <div class="media post_item">
-                            <img src="img/blog/popular-post/post4.jpg" alt="post">
-                            <div class="media-body">
-                                <a href="blog-details.html"><h3>Asteroids telescope</h3></a>
-                                <p>01 Hours ago</p>
-                            </div>
-                        </div>
-                        <div class="br"></div>
-                    </aside>
-                    <aside class="single_sidebar_widget ads_widget">
-                        <a href="#"><img class="img-fluid" src="img/blog/add.jpg" alt=""></a>
                         <div class="br"></div>
                     </aside>
 
                     <aside class="single-sidebar-widget newsletter_widget">
                         <h4 class="widget_title">Newsletter</h4>
                         <p>
-                        Here, I focus on a range of items and features that we use in life without
-                        giving them a second thought.
+                        Subscribe to our blog site and get daily insights on emerging trends in machine learning and artificial intelligence.
                         </p>
                         <div class="form-group d-flex flex-row">
                             <div class="input-group">
@@ -281,10 +243,10 @@
                     </div>
                     <p>Let us be social</p>
                     <ul class="list">
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-github"></i></a></li>
+                        <li><a href="{{instagram_link}}"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="{{twitter_link}}"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="{{linkedin_link}}"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="{{github_link}}"><i class="fa fa-github"></i></a></li>
                     </ul>
                 </aside>
             </div>

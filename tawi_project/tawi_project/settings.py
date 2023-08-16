@@ -55,7 +55,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'tawi_project.urls'
 
 TEMPLATES = [
-    {
+{
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
         'APP_DIRS': True,
@@ -65,9 +65,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'blog.context_processors.social_media_links',
+
             ],
         },
+        'NAME': 'default',  # Change this to a unique name for the default engine
     },
+
 ]
 
 WSGI_APPLICATION = 'tawi_project.wsgi.application'

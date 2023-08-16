@@ -473,7 +473,7 @@ button:focus {
     position: relative;
     overflow: hidden;
     width: 100%;
-    min-height: 360px;
+    min-height: 70px;
     z-index: 1;
     margin-bottom: 8px; }
     .banner_area .banner_inner .banner_content h2 {

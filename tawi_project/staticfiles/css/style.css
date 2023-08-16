@@ -368,7 +368,7 @@ button:focus {
   .home_banner_area .banner_inner {
     position: relative;
     width: 100%;
-    min-height: 700px;
+    min-height: 70px;
     display: flex; }
     .home_banner_area .banner_inner .banner_content {
       color: #222222;
