@@ -35,8 +35,6 @@ class PostListView(ListView):
 
 
 
-
-
 #new list view with custom filtered queries
 class UserPostListView(ListView):
     model = post
