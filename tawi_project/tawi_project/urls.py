@@ -24,7 +24,7 @@ from blog.views import PostListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', PostListView.as_view(), name="blogs-home"),
+    path('home', PostListView.as_view(), name="blogs-home"),
     path('register/', user_views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name = 'users/login.html'), name='login'), #after login it will go to next page which initiated the request.
     path('profile/', user_views.profile, name='profile'),

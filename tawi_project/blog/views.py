@@ -4,11 +4,13 @@ from django.contrib.auth.models import User
 from .models import post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.core.files.uploadedfile import InMemoryUploadedFile
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.http import FileResponse
 from .models import Resume
+from django.shortcuts import render, redirect
+
 
 
 
@@ -107,3 +109,11 @@ def resume_download(request):
     file_path = resume.file.path
     response = FileResponse(open(file_path, 'rb'))
     return response
+
+
+
+
+
+
+
+
