@@ -7,6 +7,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" >
     <link rel="stylesheet" href= "{% static 'css/boxicons.min.css' %}">
     <link rel="stylesheet" href="{% static 'vendors/linericon/style.css'%}">
@@ -62,7 +64,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Regiter</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
                             </ul>
                         </li>
 
@@ -169,6 +171,7 @@
                         <h4>Mahuthu Wanjohi</h4>
                         <p>Software Developer</p>
                         <div class="social_icon">
+                            <a href="{{medium_link}}"><i class="fa-brands fa-medium"></i></a>
                             <a href="{{twitter_link}}"><i class="fa fa-twitter"></i></a>
                             <a href="{{github_link}}"><i class="fa fa-github"></i></a>
                             <a href="{{linkedin_link}}"><i class="fa fa-linkedin"></i></a>
@@ -243,7 +246,7 @@
                     </div>
                     <p>Let us be social</p>
                     <ul class="list">
-                        <li><a href="{{instagram_link}}"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="{{medium_link}}"><i class="fa-brands fa-medium"></i></a></li>
                         <li><a href="{{twitter_link}}"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="{{linkedin_link}}"><i class="fa fa-linkedin"></i></a></li>
                         <li><a href="{{github_link}}"><i class="fa fa-github"></i></a></li>

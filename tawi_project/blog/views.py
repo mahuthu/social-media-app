@@ -36,7 +36,7 @@ class PostListView(ListView):
 
 
 #new list view with custom filtered queries
-class UserPostListView(ListView):
+class UserPostListView(LoginRequiredMixin, ListView):
     model = post
     template_name = 'blog/user_post.html'  #<app>/<model>_<viewtype>.html
     context_object_name = 'posts'
