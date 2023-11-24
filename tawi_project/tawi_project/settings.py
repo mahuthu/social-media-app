@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-l8@13g=vdx&jl3zd#)sju^(_=dh2$=+cu-z20-x7yn=8-oc51j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','savannah-ai.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1','social-media-app-7gez.onrender.com']
 
 
 
