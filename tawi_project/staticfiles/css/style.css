@@ -349,7 +349,7 @@ button:focus {
 .home_banner_area {
   position: relative;
   z-index: 1;
-  background: url(../img/machine\ learning.jpg);
+  background-color: #000;
   min-height: 100vh;
   background-size: cover;
   background-position: center;
@@ -438,7 +438,7 @@ button:focus {
       margin: auto;
       color: #fff; }
       .blog_banner .banner_inner .blog_b_text h2 {
-        font-size: 60px;
+        font-size: 25px;
         font-weight: bold;
         font-family: "Heebo", sans-serif;
         line-height: 66px;

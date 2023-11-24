@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h2>Following</h2>
+<ul>
+  {% for user in following_users %}
+    <li>
+      <a href="{% url 'user-posts' username=user.username  %}">{{ user.username }}</a>
+      <a href="{% url 'unfollow_user' username=user.username %}">Unfollow</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

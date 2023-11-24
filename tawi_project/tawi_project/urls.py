@@ -24,20 +24,20 @@ from blog.views import PostListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home', PostListView.as_view(), name="blogs-home"),
+    path('', PostListView.as_view(), name="blogs-home"),
     path('register/', user_views.register, name='register'),
-    path('login/', auth_views.LoginView.as_view(template_name = 'users/login.html'), name='login'), #after login it will go to next page which initiated the request.
+    path('login/', user_views.custom_login, name='login'),
     path('profile/', user_views.profile, name='profile'),
     path('logout/', auth_views.LogoutView.as_view(template_name = 'users/logout.html'), name='logout'),
-    path('password-reset/', auth_views.PasswordResetView.as_view(template_name='users/password_reset.html'), name='password_reset'),
-    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'),
-         name='password_reset_done'),
-    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.html'),
-         name='password_reset_confirm'),
-    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'),
-        name='password_reset_complete'),
-
+    path('follow/<int:user_id>/',user_views.follow_user, name='follow_user'),
+    path('follow/<str:username>/', user_views.follow_user, name='follow_user'),
+    path('following/', user_views.following_list, name='following_list'),
+    path('unfollow/<str:username>/', user_views.unfollow_user, name='unfollow_user'),
     path('', include('blog.url')),
+    
+
+    
+    
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

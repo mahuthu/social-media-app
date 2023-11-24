@@ -8,6 +8,10 @@
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ post.author }}</a>
               <small class="text-muted">{{ post.date_posted|date:'F d, Y' }}</small>
+              <ul class="blog_meta list">
+                <li><a href="#"> {{ post.view_count }} Views<i class="lnr lnr-eye"></i></a></li>
+                <li><a href="#"> {{ post.comments.count }} Comments<i class="lnr lnr-bubble"></i></a></li>
+              </ul>
             </div>
             <h2><a class="article-title" href="{%url 'post-detail' post.id%}">{{ post.title }}</a></h2>
             <p class="article-content">{{ post.content }}</p>

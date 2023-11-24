@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <h2>Paywall</h2>
+    <p>It looks like you've reached the free limit of 20 posts per day. Please register to access more content.</p>
+    <!-- Add a link or button to the registration page -->
+    <a href="{% url 'register' %}">Register Now</a>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+        </small>
+    </div>
+{% endblock %}

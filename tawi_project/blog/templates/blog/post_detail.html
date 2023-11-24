@@ -15,9 +15,16 @@
       {% endif %}
     </div>
     <img class = "my-article-img" src="{{post.cover.url}}" alt="">
+    <ul class="blog_meta list">
+      <li><a href="#"> {{ post.view_count }} Views<i class="lnr lnr-eye"></i></a></li>
+      <li><a href="#"> {{ post.comments.count }} Comments<i class="lnr lnr-bubble"></i></a></li>
+    </ul>
 
     <h2 class="article-title my-article-title">{{ object.title }}</h2>
     <p class="article-content my-article-content">{{ object.content }}</p>
+  {% for comment in post.comments.all %}
+    <p>{{ comment.user.username }}: {{ comment.text }}</p>
+  {% endfor %}
   </div>
 </article>
 

@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv()
+SECRET_KEY = os.getenv('SECRET_KEY')
+STRIPE_PUBLISHABLE_KEY = "pk_test_51OFxWvJZ1MgSUg6GDOdsHarOicxoTfekSw43Th8tvb4RVywHZnG5wt0XAI3SmSaRUX5Wwh3n3mmNPC8PWZOFEe8900r3B9o7LK"
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,6 +31,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','savannah-ai.onrender.com']
 
+
+
+AUTHENTICATION_BACKENDS = [
+    'users.backends.CustomUserEmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 # Application definition
 
@@ -91,20 +103,20 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+#AUTH_PASSWORD_VALIDATORS = [
+   # {
+  #      'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+   # },
+   # {
+    #    'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    #},
+   # {
+    #    'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    #},
+    #{
+    #    'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    #},
+#]
 
 
 # Internationalization
