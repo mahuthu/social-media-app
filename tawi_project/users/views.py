@@ -9,7 +9,6 @@ from django.views import View
 from django.contrib.auth.views import LoginView
 from .models import CustomUser, Follow
 from blog.models import post
-import stripe
 from django.http import HttpResponse
 import os
 

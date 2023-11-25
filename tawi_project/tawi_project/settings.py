@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l8@13g=vdx&jl3zd#)sju^(_=dh2$=+cu-z20-x7yn=8-oc51j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','social-media-app-7gez.onrender.com']
 
@@ -35,6 +35,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
 
 # Application definition
 
